@@ -6,12 +6,17 @@
   
   <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="filtre por parte do título">
   <ul class="lista-fotos">
-    <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
+    <li class="lista-fotos-item" v-for="(foto, index) in fotosComFiltro" :key="index" >
       
       <meu-painel :titulo="foto.titulo">
         <imagem-responsiva :url="foto.url" :titulo="foto.titulo"/>
 
-        <meu-botao rotulo="remover" tipo="button" @botaoAtivado="remove(foto)"/>
+        <meu-botao 
+        rotulo="remover" 
+        tipo="button" 
+        @botaoAtivado="remove(foto)"
+        :confirmacao="true"
+        estilo="perigo" />
       </meu-painel>  
       
     </li>
