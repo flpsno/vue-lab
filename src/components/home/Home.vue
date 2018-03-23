@@ -2,14 +2,14 @@
 
 <template>
   <div>
-  <h1 class="centralizado">{{ titulo }}</h1>
+  <h1 v-meu-transform class="centralizado">{{ titulo }}</h1>
   
   <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="filtre por parte do título">
   <ul class="lista-fotos">
     <li class="lista-fotos-item" v-for="(foto, index) in fotosComFiltro" :key="index" >
       
       <meu-painel :titulo="foto.titulo">
-        <imagem-responsiva :url="foto.url" :titulo="foto.titulo"/>
+        <imagem-responsiva v-meu-transform :url="foto.url" :titulo="foto.titulo"/>
 
         <meu-botao 
         rotulo="remover" 
